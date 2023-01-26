@@ -1,4 +1,5 @@
 # Atcoder
-Atcoder 記録用
+Contests -> when I enter a contest
+2023 -> for study
 
 
