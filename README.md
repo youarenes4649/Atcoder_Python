@@ -1,5 +1,8 @@
-# Atcoder
-## Contests -> when I enter a contest 
-## 2023 -> for study
+# 1. 概要
+***
+本リポジトリは、youarenes4649のAtcoder精進日記です。使用言語は **Python** です。主にコンテストへの参加とその所感,学んだアルゴリズムについて掲載していこうと思います。
+
+# 2. 目次
+***
 
 
