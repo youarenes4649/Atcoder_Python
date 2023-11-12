@@ -9,8 +9,8 @@ dpos4 = ((1, 0), (0, 1), (-1, 0), (0, -1))
 dpos8 = ((0, -1), (1, -1), (1, 0), (1, 1), (0, 1), (-1, 1), (-1, 0), (-1, -1))
 def main():
     N = ii()
-    for x in range(30):
-        for y in range(30):
+    for x in range(50):
+        for y in range(50):
             if N == (2**x) * (3 ** y):
                 print('Yes')
                 exit()

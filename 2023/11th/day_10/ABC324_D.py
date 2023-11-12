@@ -1,43 +1,20 @@
-import sys
-input = lambda: sys.stdin.readline().rstrip()
-ii = lambda: int(input())
-mi = lambda: map(int, input().split())
-li = lambda: list(mi())
-inf = 2 ** 63 - 1
-mod = 998244353
-dpos4 = ((1, 0), (0, 1), (-1, 0), (0, -1))
-dpos8 = ((0, -1), (1, -1), (1, 0), (1, 1), (0, 1), (-1, 1), (-1, 0), (-1, -1))
-
-def main():
-    N = ii()
-    S = list(str(ii()))
-    square_number_ls = []
-    for i in range(10**7):
-        so = list(str(i**2))
-        so.sort()
-        square_number_ls.append(so)
+from collections import defaultdict
 
 
-    ans = 0
-    S.sort()
-    S = ['0'] + S
-    if S[-1] == '0':
-        print(0)
-        exit()
+N = int(input())
+S = input()
+dic = defaultdict(int)
+for s in S:
+    dic[s] += 1
 
-    while S[0] == '0':
-        S = S[1:]
-        for square in square_number_ls:
-            if S== square:
-                ans += 1
+n = int((10**N)**0.5)
+ans = 0
+for i in range(n+1):
+    square_num = str(i**2).zfill(N)
+    flag = 1
+    for k, v in dic.items():
+        if square_num.count(k) != v:
+            flag = 0
+    ans += flag
 
-    print(ans)
-
-
-   
-
-    
-
-
-if __name__ == '__main__':
-    main()
+print(ans)
