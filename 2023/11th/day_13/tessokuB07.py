@@ -7,20 +7,23 @@ inf = 2 ** 63 - 1
 mod = 998244353
 dpos4 = ((1, 0), (0, 1), (-1, 0), (0, -1))
 dpos8 = ((0, -1), (1, -1), (1, 0), (1, 1), (0, 1), (-1, 1), (-1, 0), (-1, -1))
-import bisect
+from itertools import accumulate
 def main():
-    N,Q = mi()
-    S = input()
-    next_ls = []
-    for i in range(N-1):
-        if S[i] == S[i+1]:
-            next_ls.append(i)
-    for _ in range(Q):
+    T = ii()
+    N = ii()
+
+    Time = [0] * (2*T + 1)
+    for _ in range(N):
         l,r = mi()
-        l -= 1
-        r -= 1
-        ans_l = bisect.bisect_left(next_ls,l)
-        ans_r = bisect.bisect_left(next_ls,r)
-        print(ans_r-ans_l)
+        l *= 2
+        r *= 2
+        Time[l] += 1
+        Time[r] -= 1
+
+    attendance = list(accumulate(Time))
+    for h in range(T):
+        print(attendance[2 * h + 1])
+
+
 if __name__ == '__main__':
     main()
